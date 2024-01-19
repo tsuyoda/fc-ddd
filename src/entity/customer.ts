@@ -1,18 +1,21 @@
-class Customer {
-  private _id: string;
-  private _name: string;
-  private _address = '';
-  private _active = true;
+import Address from './address';
 
-  constructor(id: string, name: string) {
-    this._id = id;
-    this._name = name;
-
+export default class Customer {
+  constructor(
+    private _id: string,
+    private _name: string,
+    private _address: Address,
+    private _active = true,
+  ) {
     this.validate();
   }
 
   get name() {
     return this._name;
+  }
+
+  changeAddress(address: Address) {
+    this._address = address;
   }
 
   changeName(name: string) {
@@ -21,7 +24,7 @@ class Customer {
   }
 
   activate() {
-    if (this._address.length === 0) {
+    if (typeof this._address === 'undefined') {
       throw new Error('Adress is mandatory to activate a customer');
     }
 
