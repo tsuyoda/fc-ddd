@@ -1,17 +1,22 @@
 import Address from './address';
 
 export default class Customer {
+  private _address?: Address;
+  private _isActive = false;
+
   constructor(
     private _id: string,
     private _name: string,
-    private _address: Address,
-    private _active = true,
   ) {
     this.validate();
   }
 
   get name() {
     return this._name;
+  }
+
+  get isActive() {
+    return this._isActive;
   }
 
   changeAddress(address: Address) {
@@ -28,11 +33,11 @@ export default class Customer {
       throw new Error('Adress is mandatory to activate a customer');
     }
 
-    this._active = true;
+    this._isActive = true;
   }
 
   deactivate() {
-    this._active = false;
+    this._isActive = false;
   }
 
   private validate() {

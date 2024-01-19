@@ -17,7 +17,7 @@ export default class Address {
       throw new Error('Street is required');
     }
 
-    if (this._number < 0) {
+    if (this._number <= 0) {
       throw new Error('Number must be greater then 0');
     }
 
