@@ -3,7 +3,7 @@ import OrderItem from './orderItem';
 
 describe('Order unit tests', () => {
   it('Should throw a error when id is empty', () => {
-    const item = new OrderItem('i1', 'Item 1', 100, 1);
+    const item = new OrderItem('i1', 'Item 1', 'p1', 100, 1);
 
     expect(() => {
       new Order('', 'c1', [item]);
@@ -11,7 +11,7 @@ describe('Order unit tests', () => {
   });
 
   it('Should throw a error when customerId is empty', () => {
-    const item = new OrderItem('i1', 'Item 1', 100, 1);
+    const item = new OrderItem('i1', 'Item 1', 'p1', 100, 1);
 
     expect(() => {
       new Order('i1', '', [item]);
@@ -25,8 +25,8 @@ describe('Order unit tests', () => {
   });
 
   it('Should get total price of order', () => {
-    const item1 = new OrderItem('i1', 'Item 1', 100, 1);
-    const item2 = new OrderItem('i2', 'Item 2', 200, 2);
+    const item1 = new OrderItem('i1', 'Item 1', 'p1', 100, 1);
+    const item2 = new OrderItem('i2', 'Item 2', 'p2', 200, 2);
 
     const order1 = new Order('i1', 'c1', [item1]);
 

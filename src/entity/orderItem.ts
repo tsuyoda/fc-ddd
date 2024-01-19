@@ -4,6 +4,7 @@ export default class OrderItem {
   constructor(
     private _id: string,
     private _name: string,
+    private _productId: string,
     private _unitPrice: number,
     private _quantity: number,
   ) {
@@ -22,6 +23,10 @@ export default class OrderItem {
 
     if (this._name.length === 0) {
       throw new Error('Name is required');
+    }
+
+    if (this._productId.length === 0) {
+      throw new Error('ProductId is required');
     }
 
     if (this._unitPrice < 0) {
