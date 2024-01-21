@@ -16,7 +16,7 @@ export default class Address {
     return this._number;
   }
 
-  get zip() {
+  get zipcode() {
     return this._zipcode;
   }
 

@@ -32,11 +32,13 @@ describe('Address unit tests', () => {
   it('should return address as string', () => {
     const street = 'Street';
     const number = 10;
-    const zip = '99999-999';
+    const zipcode = '99999-999';
     const city = 'City';
 
-    const address = new Address(street, number, zip, city);
+    const address = new Address(street, number, zipcode, city);
 
-    expect(address.toString()).toBe(`${street}, ${number}, ${zip} - ${city}`);
+    expect(address.toString()).toBe(
+      `${street}, ${number}, ${zipcode} - ${city}`,
+    );
   });
 });
