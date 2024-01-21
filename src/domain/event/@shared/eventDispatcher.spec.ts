@@ -1,10 +1,10 @@
-import SendEmailWhenProductIsCreated from '../product/handler/sendEmailWhenProductIsCreated.handler';
+import SendEmailWhenProductIsCreatedHandler from '../product/handler/sendEmailWhenProductIsCreated.handler';
 import ProducerCreatedEvent from '../product/productCreated.event';
 import EventDispatcher from './eventDispatcher';
 
 describe('Event Dispatcher unit tests', () => {
   it('Should register an event handler', () => {
-    const eventHandler = new SendEmailWhenProductIsCreated();
+    const eventHandler = new SendEmailWhenProductIsCreatedHandler();
     const eventDispatcher = new EventDispatcher();
 
     const eventName = 'ProducerCreatedEvent';
@@ -20,7 +20,7 @@ describe('Event Dispatcher unit tests', () => {
   });
 
   it('Should unregister an event handler', () => {
-    const eventHandler = new SendEmailWhenProductIsCreated();
+    const eventHandler = new SendEmailWhenProductIsCreatedHandler();
     const eventDispatcher = new EventDispatcher();
 
     const eventName = 'ProducerCreatedEvent';
@@ -40,7 +40,7 @@ describe('Event Dispatcher unit tests', () => {
   });
 
   it('Should unregister all event handlers', () => {
-    const eventHandler = new SendEmailWhenProductIsCreated();
+    const eventHandler = new SendEmailWhenProductIsCreatedHandler();
     const eventDispatcher = new EventDispatcher();
 
     const eventName = 'ProducerCreatedEvent';
@@ -60,7 +60,7 @@ describe('Event Dispatcher unit tests', () => {
   });
 
   it('Should notify an event handler', () => {
-    const eventHandler = new SendEmailWhenProductIsCreated();
+    const eventHandler = new SendEmailWhenProductIsCreatedHandler();
     const eventDispatcher = new EventDispatcher();
 
     const spyEventHandler = jest.spyOn(eventHandler, 'handle');
