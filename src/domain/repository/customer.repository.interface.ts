@@ -1,5 +1,4 @@
 import Customer from '../entity/customer';
-import IRepositoryInterface from './repository.interface';
+import IRepository from './repository.interface';
 
-export default interface ICustomerRepositoryInterface
-  extends IRepositoryInterface<Customer> {}
+export default interface ICustomerRepository extends IRepository<Customer> {}

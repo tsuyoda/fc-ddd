@@ -1,10 +1,10 @@
 import Order from '../../domain/entity/order';
 import OrderItem from '../../domain/entity/orderItem';
-import IOrderRepositoryInterface from '../../domain/repository/order.repository.interface';
+import IOrderRepository from '../../domain/repository/order.repository.interface';
 import OrderModel from '../db/sequelize/model/order.model';
 import OrderItemModel from '../db/sequelize/model/orderItem.model';
 
-export default class OrderRepository implements IOrderRepositoryInterface {
+export default class OrderRepository implements IOrderRepository {
   async create(entity: Order) {
     await OrderModel.create(
       {

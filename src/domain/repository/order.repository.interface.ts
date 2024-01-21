@@ -1,9 +1,8 @@
 import Order from '../entity/order';
 import OrderItem from '../entity/orderItem';
-import IRepositoryInterface from './repository.interface';
+import IRepository from './repository.interface';
 
-export default interface IOrderRepositoryInterface
-  extends IRepositoryInterface<Order> {
+export default interface IOrderRepository extends IRepository<Order> {
   addItems(orderId: string, items: OrderItem[]): Promise<void>;
   removeItems(itemIds: string[]): Promise<void>;
 }
