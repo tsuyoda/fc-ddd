@@ -34,4 +34,14 @@ describe('OrderItem unit tests', () => {
       new OrderItem('i1', 'Item 1', 'p1', 10, -1);
     }).toThrow('Quantity must be greater than 0');
   });
+
+  it('Should mark a item as deleted', () => {
+    const item = new OrderItem('i1', 'Item 1', 'p1', 10, 1);
+
+    expect(item.isDeleted).toBe(false);
+
+    item.delete();
+
+    expect(item.isDeleted).toBe(true);
+  });
 });
