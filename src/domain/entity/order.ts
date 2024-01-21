@@ -12,8 +12,40 @@ export default class Order {
     this.validate();
   }
 
+  get id() {
+    return this._id;
+  }
+
+  get customerId() {
+    return this._customerId;
+  }
+
   get total() {
     return this._total;
+  }
+
+  get items() {
+    return this._items;
+  }
+
+  addItems(items: OrderItem[]): void {
+    this._items.push(...items);
+  }
+
+  removeItems(itemIds: string[]): void {
+    this._items = this._items.filter(item => !itemIds.includes(item.id));
+  }
+
+  updateItem(item: OrderItem): void {
+    if (!this._items.some(currentItem => currentItem.id === item.id)) {
+      throw new Error('Item not found for this order');
+    }
+
+    const index = this._items.findIndex(
+      currentItem => currentItem.id === item.id,
+    );
+
+    this._items[index] = item;
   }
 
   private validate(): void {

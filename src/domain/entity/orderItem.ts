@@ -1,5 +1,6 @@
 export default class OrderItem {
   private _total: number;
+  private _isDeleted = false;
 
   constructor(
     private _id: string,
@@ -12,8 +13,36 @@ export default class OrderItem {
     this.validate();
   }
 
+  get id() {
+    return this._id;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  get productId() {
+    return this._productId;
+  }
+
+  get unitPrice() {
+    return this._unitPrice;
+  }
+
+  get quantity() {
+    return this._quantity;
+  }
+
   get total() {
     return this._total;
+  }
+
+  get isDeleted() {
+    return this._isDeleted;
+  }
+
+  delete() {
+    this._isDeleted = true;
   }
 
   private validate() {

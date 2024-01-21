@@ -20,7 +20,7 @@ describe('Address unit tests', () => {
   it('should throw error when ZIP is empty', () => {
     expect(() => {
       new Address('Street', 10, '', 'City');
-    }).toThrow('Zip is required');
+    }).toThrow('Zipcode is required');
   });
 
   it('should throw error when City is empty', () => {

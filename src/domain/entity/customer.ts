@@ -20,6 +20,10 @@ export default class Customer {
     return this._name;
   }
 
+  get address() {
+    return this._address;
+  }
+
   get isActive() {
     return this._isActive;
   }
