@@ -1,8 +1,8 @@
 import { Sequelize } from 'sequelize-typescript';
 
-import Address from './domain/entity/address';
-import EventDispatcher from './domain/event/@shared/eventDispatcher';
-import CustomerService from './domain/service/customer.service';
+import Address from './domain/customer/valueObject/address';
+import EventDispatcher from './domain/@shared/event/eventDispatcher';
+import CustomerService from './domain/customer/service/customer.service';
 import CustomerRepository from './infrastructure/repository/customer.repository';
 import CustomerModel from './infrastructure/db/sequelize/model/customer.model';
 

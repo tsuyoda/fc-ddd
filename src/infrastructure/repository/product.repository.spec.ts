@@ -2,7 +2,7 @@ import { Sequelize } from 'sequelize-typescript';
 import ProductModel from '../db/sequelize/model/product.model';
 import ProductRepository from './product.repository';
 import { v4 as uuid } from 'uuid';
-import Product from '../../domain/entity/product';
+import Product from '../../domain/product/entity/product';
 
 describe('Infra Product repository unit tests', () => {
   let sequelize: Sequelize;
