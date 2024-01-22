@@ -5,7 +5,8 @@
   "repository": "git@github.com:tsuyoda/ts-node-template.git",
   "author": "Lucas Toyoda <lucastoyoda00@gmail.com>",
   "scripts": {
-    "test": "yarn tsc --noEmit && jest"
+    "test": "yarn tsc --noEmit && jest",
+    "dev": "yarn ts-node src/index.ts"
   },
   "devDependencies": {
     "@swc/cli": "^0.1.63",
