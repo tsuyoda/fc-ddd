@@ -1,9 +1,9 @@
 import { Sequelize } from 'sequelize-typescript';
 import { v4 as uuid } from 'uuid';
-import CustomerModel from '../db/sequelize/model/customer.model';
+import CustomerModel from '../sequelize/model/customer.model';
 import CustomerRepository from './customer.repository';
-import Customer from '../../domain/customer/entity/customer';
-import Address from '../../domain/customer/valueObject/address';
+import Customer from '../../../domain/customer/entity/customer';
+import Address from '../../../domain/customer/valueObject/address';
 
 describe('Infra Customer repository unit tests', () => {
   let sequelize: Sequelize;

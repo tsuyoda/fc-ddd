@@ -1,16 +1,16 @@
 import { Sequelize } from 'sequelize-typescript';
 import { v4 as uuid } from 'uuid';
-import CustomerModel from '../db/sequelize/model/customer.model';
-import ProductModel from '../db/sequelize/model/product.model';
-import OrderItemModel from '../db/sequelize/model/orderItem.model';
-import OrderModel from '../db/sequelize/model/order.model';
-import CustomerRepository from './customer.repository';
-import Customer from '../../domain/customer/entity/customer';
-import Address from '../../domain/customer/valueObject/address';
-import ProductRepository from './product.repository';
-import Product from '../../domain/product/entity/product';
-import OrderItem from '../../domain/checkout/entity/orderItem';
-import Order from '../../domain/checkout/entity/order';
+import CustomerModel from '../../customer/sequelize/model/customer.model';
+import ProductModel from '../../product/sequelize/model/product.model';
+import OrderItemModel from '../sequelize/model/orderItem.model';
+import OrderModel from '../sequelize/model/order.model';
+import CustomerRepository from '../../customer/repository/customer.repository';
+import Customer from '../../../domain/customer/entity/customer';
+import Address from '../../../domain/customer/valueObject/address';
+import ProductRepository from '../../product/repository/product.repository';
+import Product from '../../../domain/product/entity/product';
+import OrderItem from '../../../domain/checkout/entity/orderItem';
+import Order from '../../../domain/checkout/entity/order';
 import OrderRepository from './order.repository';
 
 describe('Infra Order repository unit tests', () => {

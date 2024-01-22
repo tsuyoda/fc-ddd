@@ -1,7 +1,7 @@
 import { Sequelize } from 'sequelize-typescript';
-import CustomerModel from '../../../infrastructure/db/sequelize/model/customer.model';
+import CustomerModel from '../../../infrastructure/customer/sequelize/model/customer.model';
 import CustomerService from './customer.service';
-import CustomerRepository from '../../../infrastructure/repository/customer.repository';
+import CustomerRepository from '../../../infrastructure/customer/repository/customer.repository';
 import EventDispatcher from '../../@shared/event/eventDispatcher';
 import { EVENTS } from '../constants/events';
 import Address from '../valueObject/address';

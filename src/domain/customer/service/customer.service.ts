@@ -8,7 +8,7 @@ import CustomerCreatedEvent from '../event/customerCreated.event';
 import Address from '../valueObject/address';
 import CustomerChangeAddressEvent from '../event/customerChangeAddress.event';
 import EventDispatcher from '../../@shared/event/eventDispatcher';
-import CustomerRepository from '../../../infrastructure/repository/customer.repository';
+import CustomerRepository from '../../../infrastructure/customer/repository/customer.repository';
 
 export default class CustomerService {
   constructor(
