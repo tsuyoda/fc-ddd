@@ -1,3 +1,6 @@
+import { EVENTS } from '../constants/events';
+import FirstConsoleWhenCustomerIsCreatedHandler from '../event/customer/handler/firstConsoleWhenCustomerIsCreated.handler';
+import SecondConsoleWhenCustomerIsCreatedHandler from '../event/customer/handler/secondConsoleWhenCustomerIsCreated.handler';
 import Address from './address';
 import Customer from './customer';
 
