@@ -1,5 +1,4 @@
 import Customer from '../entity/customer';
-import { v4 as uuid } from 'uuid';
 import { EVENTS } from '../constants/events';
 import FirstConsoleWhenCustomerIsCreatedHandler from '../event/handler/firstConsoleWhenCustomerIsCreated.handler';
 import SecondConsoleWhenCustomerIsCreatedHandler from '../event/handler/secondConsoleWhenCustomerIsCreated.handler';
@@ -9,6 +8,7 @@ import Address from '../valueObject/address';
 import CustomerChangeAddressEvent from '../event/customerChangeAddress.event';
 import EventDispatcher from '../../@shared/event/eventDispatcher';
 import CustomerRepository from '../../../infrastructure/customer/repository/customer.repository';
+import CustomerFactory from '../factory/customer.factory';
 
 export default class CustomerService {
   constructor(
@@ -32,8 +32,7 @@ export default class CustomerService {
   }
 
   async create(name: string, address: Address): Promise<Customer> {
-    const customer = new Customer(uuid(), name);
-    customer.changeAddress(address);
+    const customer = CustomerFactory.createWithAddress(name, address);
 
     await this._customerRepository.create(customer);
 
