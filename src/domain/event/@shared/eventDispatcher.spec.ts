@@ -12,7 +12,7 @@ describe('Event Dispatcher unit tests', () => {
     eventDispatcher.register(eventName, eventHandler);
 
     expect(eventDispatcher.eventHandlers[eventName]).toBeDefined();
-    expect(eventDispatcher.eventHandlers[eventName].size).toBe(1);
+    expect(eventDispatcher.eventHandlers[eventName].length).toBe(1);
 
     const [searchedEventHandler] = eventDispatcher.eventHandlers[eventName];
 
@@ -28,7 +28,7 @@ describe('Event Dispatcher unit tests', () => {
     eventDispatcher.register(eventName, eventHandler);
 
     expect(eventDispatcher.eventHandlers[eventName]).toBeDefined();
-    expect(eventDispatcher.eventHandlers[eventName].size).toBe(1);
+    expect(eventDispatcher.eventHandlers[eventName].length).toBe(1);
 
     const [searchedEventHandler] = eventDispatcher.eventHandlers[eventName];
 
@@ -36,7 +36,7 @@ describe('Event Dispatcher unit tests', () => {
 
     eventDispatcher.unregister(eventName, eventHandler);
 
-    expect(eventDispatcher.eventHandlers[eventName].size).toBe(0);
+    expect(eventDispatcher.eventHandlers[eventName].length).toBe(0);
   });
 
   it('Should unregister all event handlers', () => {
@@ -48,7 +48,7 @@ describe('Event Dispatcher unit tests', () => {
     eventDispatcher.register(eventName, eventHandler);
 
     expect(eventDispatcher.eventHandlers[eventName]).toBeDefined();
-    expect(eventDispatcher.eventHandlers[eventName].size).toBe(1);
+    expect(eventDispatcher.eventHandlers[eventName].length).toBe(1);
 
     const [searchedEventHandler] = eventDispatcher.eventHandlers[eventName];
 

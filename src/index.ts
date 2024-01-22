@@ -1,8 +1,33 @@
+import { Sequelize } from 'sequelize-typescript';
+
 import Address from './domain/entity/address';
-import Customer from './domain/entity/customer';
-import { v4 as uuid } from 'uuid';
+import EventDispatcher from './domain/event/@shared/eventDispatcher';
+import CustomerService from './domain/service/customer.service';
+import CustomerRepository from './infrastructure/repository/customer.repository';
+import CustomerModel from './infrastructure/db/sequelize/model/customer.model';
 
-const customer = new Customer(uuid(), 'Customer 1');
-const address = new Address('Street', 10, '99999-999', 'City');
+async function main() {
+  const sequelize = new Sequelize({
+    dialect: 'sqlite',
+    storage: ':memory:',
+    logging: false,
+    sync: { force: true },
+  });
 
-customer.changeAddress(address);
+  sequelize.addModels([CustomerModel]);
+  await sequelize.sync();
+
+  const customerService = new CustomerService(
+    new CustomerRepository(),
+    new EventDispatcher(),
+  );
+
+  const address = new Address('Street 1', 100, '19999-999', 'City');
+  const customer = await customerService.create('Customer 1', address);
+
+  const newAddress = new Address('Street 2', 100, '29999-999', 'City');
+
+  await customerService.changeAddress(customer.id, newAddress);
+}
+
+main();

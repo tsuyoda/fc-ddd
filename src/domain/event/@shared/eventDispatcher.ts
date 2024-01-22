@@ -3,7 +3,7 @@ import IEventDispatcher from './eventDispatcher.interface';
 import IEventHandler from './eventHandler.interface';
 
 export default class EventDispatcher implements IEventDispatcher {
-  private _eventHandlers: { [eventName: string]: Set<IEventHandler> } = {};
+  private _eventHandlers: { [eventName: string]: IEventHandler[] } = {};
 
   get eventHandlers() {
     return this._eventHandlers;
@@ -21,10 +21,10 @@ export default class EventDispatcher implements IEventDispatcher {
 
   register(eventName: string, eventHandler: IEventHandler<IEvent>): void {
     if (!this._eventHandlers[eventName]) {
-      this._eventHandlers[eventName] = new Set();
+      this._eventHandlers[eventName] = [];
     }
 
-    this._eventHandlers[eventName].add(eventHandler);
+    this._eventHandlers[eventName].push(eventHandler);
   }
 
   unregister(eventName: string, eventHandler: IEventHandler<IEvent>): void {
@@ -32,7 +32,11 @@ export default class EventDispatcher implements IEventDispatcher {
       return;
     }
 
-    this._eventHandlers[eventName].delete(eventHandler);
+    const index = this._eventHandlers[eventName].indexOf(eventHandler);
+
+    if (index !== -1) {
+      this._eventHandlers[eventName].splice(index, 1);
+    }
   }
 
   unregisterAll(): void {
