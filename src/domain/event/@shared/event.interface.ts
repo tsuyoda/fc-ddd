@@ -1,4 +1,4 @@
-export default interface IEvent {
+export default interface IEvent<T = any> {
   readonly createdAt: Date;
-  readonly eventData: any;
+  readonly eventData: T;
 }
