@@ -1,7 +1,7 @@
 import Customer from '../../entity/customer';
 import IEvent from '../@shared/event.interface';
 
-export default class CustomerCreatedEvent implements IEvent {
+export default class CustomerCreatedEvent implements IEvent<Customer> {
   readonly createdAt: Date;
 
   constructor(readonly eventData: Customer) {

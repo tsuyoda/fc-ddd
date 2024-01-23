@@ -3,7 +3,7 @@ import IEvent from '../../@shared/event.interface';
 import IEventHandler from '../../@shared/eventHandler.interface';
 
 export default class ConsoleWhenCustomerAddressIsChangedHandler
-  implements IEventHandler
+  implements IEventHandler<IEvent<Customer>>
 {
   handle(event: IEvent<Customer>): void {
     console.log(
