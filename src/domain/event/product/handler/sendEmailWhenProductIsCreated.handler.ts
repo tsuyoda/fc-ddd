@@ -1,10 +1,10 @@
-import IEvent from '../../@shared/event.interface';
 import IEventHandler from '../../@shared/eventHandler.interface';
+import ProducerCreatedEvent from '../productCreated.event';
 
 export default class SendEmailWhenProductIsCreatedHandler
-  implements IEventHandler
+  implements IEventHandler<ProducerCreatedEvent>
 {
-  handle(event: IEvent): void {
+  handle(event: ProducerCreatedEvent): void {
     console.log('Sending email to ...'); // TODO: Implement email sender
   }
 }

@@ -1,11 +1,10 @@
-import Customer from '../../../entity/customer';
-import IEvent from '../../@shared/event.interface';
 import IEventHandler from '../../@shared/eventHandler.interface';
+import CustomerChangeAddressEvent from '../customerChangeAddress.event';
 
 export default class ConsoleWhenCustomerAddressIsChangedHandler
-  implements IEventHandler<IEvent<Customer>>
+  implements IEventHandler<CustomerChangeAddressEvent>
 {
-  handle(event: IEvent<Customer>): void {
+  handle(event: CustomerChangeAddressEvent): void {
     console.log(
       `Endereço do cliente: ${event.eventData.id}, ${event.eventData.name} alterado para: ${event.eventData.address?.toString()}`,
     );
